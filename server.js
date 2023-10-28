@@ -1,14 +1,14 @@
 /**
  * Created by Syed Afzal
  */
-require("./config/config");
+require("./server/config/config");
 
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const db = require("./db");
+const db = require("./server/db");
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 //  adding routes
-require("./routes")(app);
+require("./server/routes")(app);
 
 app.on("ready", () => {
   app.listen(3000, () => {

@@ -1,11 +1,11 @@
 services:
-  backend:
+  server:
     restart: always
     build:
-      context: backend
+      context: server
       target: development
     volumes:
-      - ./backend:/usr/src/app
+      - ./server:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - mongo
